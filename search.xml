@@ -18,6 +18,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 设计模式 </tag>
+            
+            <tag> 策略模式 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -37,6 +45,14 @@
       </categories>
       
       
+        <tags>
+            
+            <tag> 设计模式 </tag>
+            
+            <tag> 单例模式 </tag>
+            
+        </tags>
+      
     </entry>
     
     
@@ -55,6 +71,14 @@
           
       </categories>
       
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 具体数学 </tag>
+            
+        </tags>
       
     </entry>
     
