@@ -370,11 +370,11 @@
             <div id="articleContent">
                 <h2 id="THE-TOWER-OF-HANOI"><a href="#THE-TOWER-OF-HANOI" class="headerlink" title="THE TOWER OF HANOI"></a>THE TOWER OF HANOI</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>汉诺塔（也称河内塔）是有法国数学家爱德华·卢卡斯于1883年发明的一道智力题。它源于印度的一个古老传说：大梵天创造世界的时候做了三根钻石柱子，在一根柱子上从下往上按照大小顺序摞着64片黄金圆盘。大梵天命令一组牧师把圆盘从下面开始按大小顺序重新摆放在另一根柱子上。并且规定，在小圆盘上不能放大圆盘，在三根柱子之间一次只能移动一个圆盘。据说牧师们夜以继日地工作，当他们完成任务时，那座塔就将坍塌，世界也将毁灭。</p>
 <p>汉诺塔问题是这样规定的：如下图，一个由8个圆盘组成的塔，这些圆盘从下向上按照大小递减的方式套在一根柱子上，我们的目的是要将这根柱子上的所有圆盘移动到另一根柱子上，每次只能移动一个圆盘，且在移动过程中较大的圆盘不能放置在较小的圆盘上面。</p>
-<img src="C:\Users\罗汝0221\AppData\Roaming\Typora\typora-user-images\image-20200714121332706.png" alt="image-20200714121332706" style="zoom:80%;" />
+<img src="image-20200714121332706.png" alt="image-20200714121332706" style="zoom:80%;" />
 
 <p>已经证明这个智力题有解，现在问题来了：我们能做到的最好的解法是什么？也就是说，要完成这项任务至少移动多少次才是必须且足够的？</p>
 <p>解决这样的问题的最好方法是对它稍加推广，印度传说中的塔有64个圆盘，汉诺塔问题中的塔有8个圆盘，我们将这个问题推广为有n个圆盘，这样我们简化一下这个问题。如下图，n个圆盘套在A柱上，按照与汉诺塔相同的规则移动到C柱上，至少需要移动多少次。</p>
-<img src="C:\Users\罗汝0221\AppData\Roaming\Typora\typora-user-images\image-20200714122326196.png" alt="image-20200714122326196" style="zoom:80%;" />
+<img src="image-20200714122326196.png" alt="image-20200714122326196" style="zoom:80%;" />
 
 <h3 id="数学分析"><a href="#数学分析" class="headerlink" title="数学分析"></a>数学分析</h3><p>我们假设T<sub>n</sub> 是根据规则将n个圆盘从一根柱子移动到另一根柱子所需要的最少移动次数。那么T<sub>0</sub>显然是0，T<sub>1</sub> = 1，T<sub>2</sub> = 3。</p>
 <p>现在我们改变一下视角，来考虑大的情形：怎样才能移动一个大的塔呢？将n个圆盘从A柱移动到C柱可以分三步来完成，首先将A柱上面的n-1个圆盘从A柱移动到B柱上，这一步需要移动T<sub>n-1</sub>次。然后将A柱上剩下的那个最大的盘移动到C柱上，这一步需要移动1次。最后将B柱上的n-1个盘移动到C柱上，这一步也需要移动T<sub>n-1</sub>次。所以n(n&gt;0)个圆盘移动2T<sub>n-1</sub>+1次是足够了的，但是我们并没有证明2T<sub>n-1</sub>+1是最少的移动次数，因此：<br>$$<br>T_n \leq 2T_{n-1} + 1, n &gt; 0<br>$$<br>那么还有更好的办法吗？实际上没有，因为我们迟早必须移动最大的那个圆盘。当我们这样做的时候，那n-1个圆盘必须已经在另外某根柱子上，而这一步至少需要移动T<sub>n-1</sub>次，这样我们才能把最大的那个盘移动到第三根柱子上（大盘不能放在小盘上面），移动完最大的盘之后，我们必须把n-1个小的圆盘（此时它们全部处于同一根柱子上）移到最大的盘的上面，这也至少需要移动T<sub>n-1</sub>次，因此：<br>$$<br>T_n \geq 2T_{n-1} + 1,n &gt; 0<br>$$<br>把这两个不等式与n=0时的平凡解结合在一起就得到：<br>$$<br>\begin{cases} T_n = 0,n = 0\ \ T_n = 2T_{n-1} + 1,n &gt; 0 \end{cases}<br>$$<br>得到这样一个递归式之后，我们就可以通过T<sub>0</sub>求出T<sub>1</sub>、由T<sub>1</sub>求出T<sub>2</sub>、由T<sub>2</sub>求出T<sub>3</sub>…最终求出任意的T<sub>n</sub>，这交给计算机程序是很容易计算出T<sub>n</sub>的。但是，如果没有计算机让你去计算T<sub>64</sub>，相信并没人会愿意从T<sub>1</sub>一步一步计算到T<sub>64</sub>。那么有没有一个既漂亮又简介的式子供我们快捷计算T<sub>n</sub>呢，即使n很大？</p>
@@ -472,7 +472,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yoursite.com/2020/07/17/han-nuo-ta/">http://yoursite.com/2020/07/17/han-nuo-ta/</a>
+                    <a href="https://luoru0221.github.io/2020/07/17/han-nuo-ta/">https://luoru0221.github.io/2020/07/17/han-nuo-ta/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1141,6 +1141,11 @@ $(function () {
 
     
 
+    
+    <script type="text/javascript" color="0,0,255"
+        pointColor="0,0,255" opacity='0.7'
+        zIndex="-1" count="99"
+        src="/libs/background/canvas-nest.js"></script>
     
 
     
